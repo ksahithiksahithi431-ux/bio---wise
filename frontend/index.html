@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bio Wise | Smart Biogas Plant Planning</title>
+    <meta name="description"
+          content="Learn about biogas plants, estimate biogas production, and explore plant planning for homes, farms, and businesses.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+    <a class="brand" href="#home">
+        <span class="brand-mark">♻</span> Bio Wise
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#planner">Plant Planner</a>
+        <a href="#estimator">Calculator</a>
+        <a href="#cost">Cost Guide</a>
+        <a href="#learn">Learn</a>
+        <a href="#history">My Estimates</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <!-- HOME SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-copy">
+            <p class="eyebrow">SMART WASTE • CLEAN ENERGY</p>
+
+            <h1>
+                Turn organic waste
+                <br>
+                <span>into possibility.</span>
+            </h1>
+
+            <p class="hero-text">
+                Thinking about starting a biogas plant?
+                Bio Wise helps you understand your waste,
+                estimate potential biogas production, and
+                learn the basics of plant planning.
+            </p>
+
+            <a class="button button-light" href="#planner">
+                Start planning <span>↘</span>
+            </a>
+
+            <a class="button button-light" href="#estimator">
+                Calculate biogas
+            </a>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+            <div class="sun"></div>
+            <div class="leaf leaf-one"></div>
+            <div class="leaf leaf-two"></div>
+
+            <div class="jar">
+                <div class="jar-cap"></div>
+                <div class="bubble b1"></div>
+                <div class="bubble b2"></div>
+                <div class="bubble b3"></div>
+                <div class="jar-leaf">♻</div>
+            </div>
+
+            <div class="ground"></div>
+        </div>
+
+    </section>
+
+    <!-- DASHBOARD STATISTICS -->
+    <section class="stats" aria-label="Estimate statistics">
+
+        <article class="stat-card">
+            <span class="stat-icon">⌁</span>
+            <p>Total estimates</p>
+            <strong id="totalRecords">—</strong>
+        </article>
+
+        <article class="stat-card">
+            <span class="stat-icon">♧</span>
+            <p>Total waste recorded</p>
+            <strong>
+                <span id="totalWaste">—</span>
+                <small>kg</small>
+            </strong>
+        </article>
+
+        <article class="stat-card">
+            <span class="stat-icon">◉</span>
+            <p>Potential biogas</p>
+            <strong>
+                <span id="totalGas">—</span>
+                <small>m³</small>
+            </strong>
+        </article>
+
+    </section>
+
+    <!-- WHO CAN USE BIO WISE -->
+    <section class="panel audience-section">
+
+        <p class="eyebrow">MADE FOR EVERYONE</p>
+        <h2>Who can use Bio Wise?</h2>
+
+        <p class="muted">
+            Explore biogas planning for different needs.
+        </p>
+
+        <div class="feature-grid">
+
+            <article class="feature-card">
+                <div class="feature-icon">🏡</div>
+                <h3>Households</h3>
+                <p>
+                    Learn how kitchen waste can be considered
+                    for a small household biogas project.
+                </p>
+                <a href="#planner">Explore planning →</a>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-icon">🌾</div>
+                <h3>Farmers</h3>
+                <p>
+                    Explore agricultural organic waste and
+                    the basics of farm biogas systems.
+                </p>
+                <a href="#planner">Explore planning →</a>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-icon">🐄</div>
+                <h3>Dairy owners</h3>
+                <p>
+                    Learn about cattle manure, feedstock
+                    availability, and preliminary planning.
+                </p>
+                <a href="#planner">Explore planning →</a>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-icon">🏪</div>
+                <h3>Small businesses</h3>
+                <p>
+                    Explore potential uses of food and
+                    vegetable waste from your business.
+                </p>
+                <a href="#planner">Explore planning →</a>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- PLANT PLANNING WIZARD -->
+    <section class="panel" id="planner">
+
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">YOUR FIRST STEP</p>
+                <h2>Plan your biogas project</h2>
+            </div>
+            <span class="heading-icon">🌱</span>
+        </div>
+
+        <p class="muted">
+            Answer these questions to prepare a preliminary
+            project profile. This is a planning aid, not a
+            final engineering recommendation.
+        </p>
+
+        <form id="plannerForm">
+
+            <label for="userType">
+                Who are you planning for?
+            </label>
+
+            <select id="userType" required>
+                <option value="">Choose an option</option>
+                <option value="Household">Household</option>
+                <option value="Farmer">Farmer</option>
+                <option value="Dairy">Dairy owner</option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Small business">Small business</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="dailyWaste">
+                Available organic waste per day (kg)
+            </label>
+
+            <input
+                id="dailyWaste"
+                type="number"
+                min="0.1"
+                step="0.1"
+                placeholder="For example, 10"
+                required
+            >
+
+            <label for="plantPurpose">
+                What would you like to use biogas for?
+            </label>
+
+            <select id="plantPurpose" required>
+                <option value="">Choose your purpose</option>
+                <option value="Cooking">Cooking</option>
+                <option value="Heating">Heating</option>
+                <option value="Electricity">Electricity generation</option>
+                <option value="Learning">Learning and exploration</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="projectLocation">
+                Project location (optional)
+            </label>
+
+            <input
+                id="projectLocation"
+                type="text"
+                placeholder="Village, town, or region"
+            >
+
+            <button class="button button-primary" type="submit">
+                Create my project profile →
+            </button>
+
+            <div
+                id="plannerResult"
+                class="planner-result"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+        </form>
+
+    </section>
+
+    <!-- EXISTING BIOGAS CALCULATOR -->
+    <section class="work-grid" id="estimator">
+
+        <div class="panel form-panel">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">BIOGAS CALCULATOR</p>
+                    <h2>Estimate your output</h2>
+                </div>
+                <span class="heading-icon">✳</span>
+            </div>
+
+            <p class="muted">
+                Enter your waste details to calculate an
+                illustrative biogas volume.
+            </p>
+
+            <form id="estimateForm">
+
+                <label for="wasteType">
+                    Type of organic waste
+                </label>
+
+                <select id="wasteType" required>
+                    <option value="Food waste" data-yield="0.10">
+                        Food waste
+                    </option>
+                    <option value="Cow dung" data-yield="0.04">
+                        Cow dung
+                    </option>
+                    <option value="Poultry manure" data-yield="0.07">
+                        Poultry manure
+                    </option>
+                    <option value="Crop residue" data-yield="0.08">
+                        Crop residue
+                    </option>
+                    <option value="Vegetable waste" data-yield="0.09">
+                        Vegetable waste
+                    </option>
+                    <option value="Other organic waste" data-yield="0.06">
+                        Other organic waste
+                    </option>
+                </select>
+
+                <label for="quantity">
+                    Quantity of waste <span class="label-unit">(kg)</span>
+                </label>
+
+                <div class="input-wrap">
+                    <input
+                        id="quantity"
+                        type="number"
+                        min="0.1"
+                        step="0.1"
+                        placeholder="For example, 10"
+                        required
+                    >
+                    <span>kg</span>
+                </div>
+
+                <div class="yield-note">
+                    Illustrative yield rate:
+                    <strong id="yieldRate">0.10 m³/kg</strong>
+                </div>
+
+                <button class="button button-primary" type="submit">
+                    Calculate & save <span>→</span>
+                </button>
+
+                <p class="form-message" id="formMessage" role="status"></p>
+
+            </form>
+
+        </div>
+
+        <div class="panel result-panel">
+
+            <div class="result-top">
+                <span class="result-badge">✦ ESTIMATED RESULT</span>
+                <span class="result-orb">↗</span>
+            </div>
+
+            <p class="result-label">Potential biogas output</p>
+
+            <div class="result-number">
+                <span id="resultValue">0.000</span>
+                <small>m³</small>
+            </div>
+
+            <div class="result-divider"></div>
+
+            <div class="result-detail">
+                <span>Waste selected</span>
+                <strong id="resultWaste">Food waste</strong>
+            </div>
+
+            <div class="result-detail">
+                <span>Waste quantity</span>
+                <strong id="resultQuantity">0 kg</strong>
+            </div>
+
+            <div class="result-detail">
+                <span>Yield rate</span>
+                <strong id="resultYield">0.10 m³/kg</strong>
+            </div>
+
+            <p class="result-footnote">
+                This is an illustrative estimate, not a guaranteed
+                production value. Actual output depends on feedstock
+                characteristics, preparation, temperature, and plant
+                operating conditions.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- COST PLANNING -->
+    <section class="panel" id="cost">
+
+        <p class="eyebrow">BUDGET YOUR PROJECT</p>
+        <h2>Biogas plant cost guide</h2>
+
+        <p class="muted">
+            A plant's cost depends on its size, design, location,
+            materials, installation, and maintenance needs.
+        </p>
+
+        <div class="feature-grid">
+
+            <article class="feature-card">
+                <div class="feature-icon">🏗️</div>
+                <h3>Installation</h3>
+                <p>
+                    Consider the digester, piping, gas storage,
+                    site preparation, and professional installation.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-icon">🔧</div>
+                <h3>Running costs</h3>
+                <p>
+                    Consider labour, water, repairs, cleaning,
+                    and regular maintenance.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-icon">💡</div>
+                <h3>Potential savings</h3>
+                <p>
+                    Compare estimated useful energy with your
+                    current fuel or energy expenses.
+                </p>
+            </article>
+
+        </div>
+
+        <p class="table-note">
+            No fixed price or savings amount is promised here.
+            Obtain quotations from qualified installers before
+            making financial decisions.
+        </p>
+
+    </section>
+
+    <!-- LEARNING CENTRE -->
+    <section class="panel" id="learn">
+
+        <p class="eyebrow">BEGINNER'S LEARNING CENTRE</p>
+        <h2>Learn about biogas</h2>
+
+        <p class="muted">
+            Understand the basics before planning a plant.
+        </p>
+
+        <div class="feature-grid">
+
+            <article class="feature-card">
+                <div class="feature-icon">📘</div>
+                <h3>What is biogas?</h3>
+                <p>
+                    Biogas is a gas mixture produced when
+                    microorganisms break down organic material
+                    in an oxygen-free environment.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-icon">⚙️</div>
+                <h3>How does a plant work?</h3>
+                <p>
+                    Organic feedstock enters a digester, where
+                    biological processes produce gas and a
+                    remaining digestate material.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-icon">🍃</div>
+                <h3>Choosing feedstock</h3>
+                <p>
+                    Food waste, animal manure, and some crop
+                    residues may be suitable, depending on
+                    their characteristics and plant design.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-icon">🌿</div>
+                <h3>Digestate and slurry</h3>
+                <p>
+                    Learn how digester residue may be managed
+                    and used appropriately after checking
+                    its quality and local requirements.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- SAFETY -->
+    <section class="panel safety-panel" id="safety">
+
+        <p class="eyebrow">IMPORTANT</p>
+        <h2>Biogas plant safety</h2>
+
+        <ul>
+            <li>
+                Biogas can be flammable. Keep flames and ignition
+                sources away from gas equipment.
+            </li>
+            <li>
+                Never enter a digester, pit, or enclosed gas
+                space. Dangerous gases and oxygen deficiency
+                can cause serious harm.
+            </li>
+            <li>
+                Have gas pipes, storage systems, and appliances
+                installed and checked by qualified professionals.
+            </li>
+            <li>
+                Do not rely on this website alone to choose a
+                plant size or construct a gas system.
+            </li>
+        </ul>
+
+    </section>
+
+    <!-- EXISTING SAVED ESTIMATE HISTORY -->
+    <section class="panel history-panel" id="history">
+
+        <div class="section-heading history-heading">
+            <div>
+                <p class="eyebrow">YOUR ACTIVITY</p>
+                <h2>Estimate history</h2>
+            </div>
+
+            <button
+                class="button button-outline"
+                id="refreshBtn"
+                type="button"
+            >
+                ↻ Refresh
+            </button>
+        </div>
+
+        <div class="table-wrap">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Waste type</th>
+                        <th>Quantity</th>
+                        <th>Yield rate</th>
+                        <th>Estimated biogas</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="historyBody">
+                    <tr>
+                        <td colspan="6" class="empty-state">
+                            Loading your records…
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <p class="table-note">
+            Showing your latest 100 saved estimates.
+        </p>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <span class="footer-brand">♻ Bio Wise</span>
+        <span>Small waste choices. A cleaner energy future.</span>
+    </footer>
+
+</main>
+
+<script src="app.js"></script>
+
+</body>
+</html>
